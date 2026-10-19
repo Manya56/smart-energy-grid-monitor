@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg15
+    container_name: grid_timescaledb
+    environment:
+      POSTGRES_USER: grid_admin
+      POSTGRES_PASSWORD: secure_password
+      POSTGRES_DB: smart_grid_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
